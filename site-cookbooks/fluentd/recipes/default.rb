@@ -7,6 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
+package "build-essential" do
+  action :install
+end
+
 package "ruby-dev" do
   action :install
 end
