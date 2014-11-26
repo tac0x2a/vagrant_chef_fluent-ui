@@ -29,6 +29,6 @@ template "fluentd-ui" do
 end
 
 service "fluentd-ui" do
-  supports :start => true, :stop => true, :restart => true, :reload => true
+  supports :start => true, :stop => true
   action [:start, :enable]
 end
