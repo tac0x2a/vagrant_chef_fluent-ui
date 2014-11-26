@@ -7,20 +7,18 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package "build-essential" do
-  action :install
+packages = ["build-essential", "ruby-dev", "libssl-dev"]
+packages.each do |p|
+  package p do
+    action :install
+  end
 end
 
-package "ruby-dev" do
-  action :install
-end
-
-package "libssl-dev" do
-  action :install
-end
-
-gem_package "fluentd-ui" do
-  action :install
+gem_packages = ["fluentd-ui"]
+gem_packages.each do |p|
+  gem_package p do
+    action :install
+    end
 end
 
 template "fluentd-ui" do
@@ -30,10 +28,16 @@ template "fluentd-ui" do
   mode 0755
 end
 
-service "fluentd-ui" do
-  action [:enable, :start]
+package "apache2" do
+  action :install
 end
 
-service "iptables" do
-  action [:disable, :stop]
+service "apache2" do
+  supports :restart => true
+  action :start
+end
+
+service "fluentd-ui" do
+  supports :start => true, :stop => true, :restart => true, :reload => true
+  action [:start, :enable]
 end
