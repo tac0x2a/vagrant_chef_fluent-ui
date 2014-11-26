@@ -28,15 +28,6 @@ template "fluentd-ui" do
   mode 0755
 end
 
-package "apache2" do
-  action :install
-end
-
-service "apache2" do
-  supports :restart => true
-  action :start
-end
-
 service "fluentd-ui" do
   supports :start => true, :stop => true, :restart => true, :reload => true
   action [:start, :enable]
