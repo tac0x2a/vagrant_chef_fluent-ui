@@ -1,9 +1,7 @@
 #!/bin/sh
 
-date >> /tmp/hoge.txt
-echo "sudo $FLUENTD_UI_PATH/fluentd-ui $1" >> /tmp/hoge.txt
-
 export PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin
+
 NAME="fluentd-ui"
 FLUENTD_UI_PATH="/usr/local/bin"
 PIDFILE=/run/${NAME}.pid

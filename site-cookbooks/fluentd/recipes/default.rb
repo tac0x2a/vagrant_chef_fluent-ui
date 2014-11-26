@@ -2,7 +2,7 @@
 # Cookbook Name:: fluentd
 # Recipe:: default
 #
-# Copyright 2014, YOUR_COMPANY_NAME
+# Copyright 2014, TAC
 #
 # All rights reserved - Do Not Redistribute
 #
